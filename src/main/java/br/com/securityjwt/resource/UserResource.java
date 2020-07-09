@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserResource {
 
     @PostMapping
-    public ResponseEntity<?> getUser(@PathVariable UserRequest userRequest){
+    public ResponseEntity<?> getUser(@RequestBody UserRequest userRequest){
 
         System.out.println(userRequest.getEmail() + userRequest.getPassword());
 
