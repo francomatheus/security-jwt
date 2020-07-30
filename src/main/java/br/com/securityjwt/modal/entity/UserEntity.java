@@ -1,5 +1,6 @@
 package br.com.securityjwt.modal.entity;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,12 +19,16 @@ public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String username;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
+
     private String fullname;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<RolesEntity> roles;
 
     @Override
